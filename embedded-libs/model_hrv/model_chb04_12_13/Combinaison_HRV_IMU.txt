@@ -1,0 +1,24 @@
+Le Concept du "Droit de Veto" (Sensor Fusion Simplifiée)
+Au lieu de réentraîner une IA complexe qui mélange tout (ce qui serait long), dites à votre développeur d'utiliser l'accéléromètre comme un "Juge" qui a le droit d'annuler une alerte HRV.
+
+Voici la logique à implémenter dans le code C++ de la STM32 :
+
+L'IA (HRV) est la Sentinelle : Elle surveille en permanence. Si le RMSSD chute, elle crie "ALERTE POTENTIELLE !".
+
+L'Accéléromètre est le Juge : Il regarde ce que fait le corps à ce moment précis.
+
+Scénario A : Le Jogging (Faux Positif Classique)
+IA HRV : "Le RMSSD s'effondre ! Ça ressemble à une crise !" -> Signal = 1.
+
+Accéléromètre : "Je détecte des impacts réguliers, forts et rythmiques (activité > seuil sportif)."
+
+DÉCISION C++ : L'IA dit Crise MAIS l'Accéléromètre dit Sport. -> ANNULATION DE L'ALARME. (On ne réveille pas l'utilisateur).
+
+Scénario B : La "Vraie" Prévention (Pré-ictal)
+IA HRV : "Le RMSSD s'effondre ! Ça ressemble à une crise !" -> Signal = 1.
+
+Accéléromètre : "Je ne détecte rien de spécial. L'utilisateur est assis ou marche doucement."
+
+DÉCISION C++ : L'IA dit Crise ET pas de justification sportive. -> ALERTE VALIDÉE 🚨.
+
+Résultat : L'alarme sonne 30 secondes avant la convulsion, car le corps ne bouge pas encore violemment.

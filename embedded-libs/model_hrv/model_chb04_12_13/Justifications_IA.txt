@@ -1,0 +1,42 @@
+Corrélations entre les différentes valeurs analysées par l'IA :
+
+
+C'est prouvé scientifiquement, et c'est tout le fondement de la recherche actuelle sur la détection multimodale (Neuro-Cardiaque). Il ne s'agit pas de "magie", mais de physiologie.
+
+Voici les 3 preuves concrètes qui différencient une crise d'un simple footing, et que l'IA est capable de voir :
+
+1. La Vitesse de la Chute (La "Pente")
+Sport / Stress : Quand vous commencez à courir ou que vous stressez, votre cœur accélère progressivement. Le RMSSD descend, mais c'est une courbe douce, "physiologique". Le corps s'adapte.
+
+Crise (Ictal) : C'est souvent brutal. C'est une "tempête autonomique". Le cerveau envoie un signal erroné violent au cœur (via le nerf vague). La variabilité cardiaque s'effondre parfois en quelques secondes, beaucoup plus vite que lors d'un effort normal.
+
+L'IA le voit grâce à la "dérivée" (la vitesse de changement).
+
+2. La Complexité du Signal (L'Entropie)
+C'est le point le plus fascinant.
+
+Sport : Votre cœur bat vite, mais de manière régulière et rythmique (métronome). Le signal reste "propre".
+
+Crise : Le système nerveux est en chaos. Le rythme cardiaque devient rigide ou erratique d'une manière non naturelle. On observe souvent une perte de "complexité".
+
+L'IA le voit grâce à des features comme l'Entropie (Sample Entropy) que nous allons calculer.
+
+3. Le "Pattern" de Récupération
+Sport : Après l'effort, le cœur ralentit doucement.
+
+Crise : Il y a souvent une phase "post-ictale" très spécifique, où le corps est épuisé d'une manière différente, parfois avec des irrégularités persistantes que le sport ne provoque pas.
+
+Résumé : Ce que l'IA va chercher
+Imaginez que le Ratio < 0.5 est une "Alarme Incendie".
+
+Si on n'a que le ratio (votre if), l'alarme sonne dès qu'il fait chaud (Feu OU Canicule ?).
+
+Avec l'IA, on ajoute des capteurs de fumée (Entropie) et de vitesse de montée en température (Pente).
+
+Canicule (Sport) : Il fait chaud, mais pas de fumée, montée lente -> Pas d'alerte.
+
+Incendie (Crise) : Il fait chaud, montée brutale, fumée -> ALERTE.
+
+C'est pour capter ces nuances (Pente et Entropie) que nous ne pouvons pas nous contenter d'un simple seuil, et que nous devons entraîner un modèle.
+
+Si vous êtes convaincu, nous pouvons lancer la création du script train_model_v5_generalization.py qui va justement apprendre à combiner ces facteurs pour nos 3 patients !
