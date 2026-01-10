@@ -1,1 +1,22 @@
+# --- DONNÉES VOLUMINEUSES (A ne jamais envoyer sur Git) ---
 *.edf
+*.dat
+*.hea
+*.ari
+*.st
+*.xws
+
+# Dossier complet des données
+data/
+
+# Dossier de sortie pour Edge Impulse (CSV)
+experiments/v2_szdb_7_patients/edge_impulse_dataset/
+edge_impulse_dataset/
+
+# --- PYTHON ---
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# --- SYSTÈME ---
+.DS_Store
